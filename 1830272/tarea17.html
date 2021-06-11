@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/tarea17.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="grid-container">
+<header class="header">Tarea 17.-</header>
+<aside class="sidebar">Tarea 17
+    <div>
+        <p>Elabore un programa en JAVA que a través de un Menú de
+            opciones permita al usuario convertir de pesos a las
+            siguientes monedas:</p>
+            <p>Dólar</p> <br>
+            <p> Euro</p> <br>
+            <p> Yen(Japonés)</p> <br>
+            <p>Dólar de Hong Kong</p> <br>
+            <p>Usar el cuadro de dialogo, showOptionDialog(), para
+                seleccionar : Dólar, Euro, Yen, DolarHK)</p> <br>
+    </div>
+</aside>
+<main class="main">
+    <div class="oi">
+        <pre>
+1            import java.text.DecimalFormat;
+2 import javax.swing.JOptionPane;
+3
+4 public class ConversorMoneda {
+5	public static void main(String[] args) {
+6		String entrada;
+7		double p, d, e, j, h;
+8		int opcion;
+9		DecimalFormat df = new DecimalFormat("#.00");
+10		String[] options = { "Dólar", "Euro", "Yen Japones", "Dólar Hong Kong" };
+11		entrada = JOptionPane.showInputDialog("Ingrese la cantidad de pesos que desea convertir: ");
+12		p = Double.parseDouble(entrada);
+13		String letrero = "";
+14		int v = JOptionPane.showOptionDialog(null, "Convertir a: ", "Menú de Monedas", 15JOptionPane.      YES_NO_CANCEL_OPTION,
+16				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+17		entrada = v + "";
+18		opcion = Integer.parseInt(entrada);
+19		switch (opcion) {
+20			default:
+21				d = p / 19.31;
+22				JOptionPane.showMessageDialog(null, p + " es igual a " + df.format(d) + " USD");
+23				break;
+24			case 1:
+25				e = p / 21.27;
+26				JOptionPane.showMessageDialog(null, p + " es igual a " + df.format(e) + " EUR");
+27				break;
+28			case 2:
+29				j = p / 0.18;
+30				JOptionPane.showMessageDialog(null, p + "  es igual a " + df.format(j) + " JPY");
+31				break;
+32			case 3:
+33				h = p / 2.46;
+34				JOptionPane.showMessageDialog(null, p + " es igual a " + df.format(h) + " HKD");
+35		}
+36	}
+37 }
+        </pre>
+    </div>
+</main>
+<footer class="footer"><div class="botones">
+    <button class="button"><a href="tarea16.html">Anterior</a></button>
+    <button class="buttona">
+        <a href="index.html">
+            Menu Principal
+        </a>
+    </button>
+    <button class="buttona">
+        <a href="tarea18.html">
+            Siguiente
+        </a>
+    </button>
+</div>
+</footer>
+</body>
+</html>

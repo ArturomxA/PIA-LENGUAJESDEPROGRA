@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/tarea18.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="grid-container">
+<header class="header">TPIA LENGUAJES DE PROGRAMACION</header>
+<aside class="sidebar">TAREA 18 SUMA A</aside>
+<main class="main">
+    <div class="as">
+        <pre>
+1            import java.util.*;
+2
+3public class SerieA {
+4
+5	public static void main(String[] args) {
+6
+7		// TODO Auto-generated method stub
+8
+9		int serie = 1;
+10		boolean sumar = true;
+11		int cont;
+12		String cadena = "Serie: ";
+13
+14		System.out.println("Indique cuantos numeros de la serie quiere ver: ");
+15
+16		Scanner sc = new Scanner(System.in);
+17		cont = sc.nextInt();
+18
+19		do {
+20
+21			cadena = cadena.concat(String.valueOf(serie) + "  ");
+22			cont--;
+23			if (sumar == true) {
+24				serie += 4;
+25			} else {
+26				serie -= 2;
+27			}
+28
+29			sumar = !sumar;
+30		} while (cont > 0);
+31
+32		System.out.println(cadena);
+33
+34	}// Fin Main
+35 }// Fin Clase
+        </pre>
+    </div>
+</main>
+<footer class="footer"><div class="botones">
+    <button class="button"><a href="tarea17.html">Anterior</a></button>
+    <button class="buttona">
+        <a href="index.html">
+            Menu Principal
+        </a>
+    </button>
+    <button class="buttona">
+        <a href="tarea19.html">
+            Siguiente
+        </a>
+    </button>
+</div>
+</footer>
+</body>
+</html>

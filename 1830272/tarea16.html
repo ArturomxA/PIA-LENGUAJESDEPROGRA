@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/tarea16.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="grid-container">
+<header class="header">Tarea 1.-</header>
+<aside class="sidebar">SIDEBAR</aside>
+<main class="main">
+    <div class="oi"> 
+        <pre>
+1            import java.text.DecimalFormat;
+2 import javax.swing.JOptionPane;
+3
+4public class ConversorTemperatura {
+5	public static void main(String[] args) {
+6		String entrada;
+7		double n, c, f;
+8		int opcion;
+9		DecimalFormat df = new DecimalFormat("#.0");
+10		String[] options = { "°C a °F", "°F a °C", "EXIT" };
+11		entrada = JOptionPane.showInputDialog("Ingrese el valor de temperatura que desea convertir: 12");
+13		n = Double.parseDouble(entrada);
+14		String letrero = "";
+15		int v = JOptionPane.showOptionDialog(null, "Convertir de: ", "Menú de Escalas",
+16				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, 17options[0]);
+18		entrada = v + "";
+19		opcion = Integer.parseInt(entrada);
+20		switch (opcion) {
+21			case 1:
+22				c = (n - 32) * 5 / 9;
+23				JOptionPane.showMessageDialog(null, n + " °F equivale a " + df.format(c) + " °C");
+24				break;
+25			case 2:
+26				JOptionPane.showMessageDialog(null, "Click en ACEPTAR para salir");
+27				break;
+28			default:
+29				f = (n * 9 / 5) + 32;
+30				JOptionPane.showMessageDialog(null, n + " °C equivale a " + df.format(f) + " °F");
+31				break;
+32		}
+33	}
+34 }
+
+        </pre>
+    </div></main>
+<footer class="footer"><div class="botones">
+    <button class="button"><a href="tarea12.html">Anterior</a></button>
+    <button class="buttona">
+        <a href="index.html">
+            Menu Principal
+        </a>
+    </button>
+    <button class="buttona">
+        <a href="tarea17.html">
+            Siguiente
+        </a>
+    </button>
+</div>
+</footer>
+</body>
+</html>

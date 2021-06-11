@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/tarea9.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="grid-container">
+<header class="header">Tarea 1.-</header>
+<aside class="sidebar"><p>Tarea 9.-</p> <br>
+<p>Símbolos, sintaxis, esqueleto de los programas,</p> <br>
+<p>a que tipo de paradigma pertenece</p>
+
+</aside>
+<main class="main">
+    <img src="imagenes/r.png" alt="">
+    <h1>LENGUAJE DE PROGRAMACION R</h1>
+<p>Es un entorno de software libre (licencia GNU GLP) y lenguaje de programación interpretado, es decir, ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina. El término entorno, en R, se refiere a un sistema totalmente planificado y coherente, en lugar de una acumulación de herramientas específicas e inflexibles, como suele ser el caso en otros softwares de análisis de datos.</p>
+<p>Este entorno es comúnmente utilizado para la computación estadística y gráfica, ya que dispone de una amplia variedad de técnicas estadísticas (modelos lineales y no lineales, pruebas estadísticas clásicas, análisis de series de tiempo, clasificación, agrupamiento, etc.) y gráficas. Funciona en plataformas UNIX y sistemas similares (incluidos FreeBSD y Linux), Windows y MacOS.
+
+</p>
+<p>Su desarrollo actual es responsabilidad del R Development Core Team. Forma parte de un proyecto colaborativo y abierto donde los usuarios pueden publicar paquetes que extienden su configuración básica (repositorio oficial de paquetes).</p>
+<p><b>Caracteristicas</b></p>
+<p> ⏹Manejo y almacenamiento efectivo de los datos.</p>
+<p>⏹Un conjunto de operadores para la realización de cálculos con matrices.</p>
+<p>⏹Una gran colección de herramientas para el análisis de datos.</p>
+<p>⏹Utilidades gráficas para la visualización de datos.</p>
+<p>⏹Un lenguaje de programación bien desarrollado que incluye saltos condicionales, bucles, funciones recursivas, utilidades para la entrada y salida de datos, etc.</p>
+<p>⏹Tiene un formato de documentación basado en LaTeX, que se utiliza para proporcionar documentación completa tanto en formato físico como digital.</p>
+<p><b>SINTAXIS</b></p> <br>
+<p>⏹No se tienen en cuenta los espacios en blancos: podemos o no dejar espacios para que el código se puede ordenar de forma adecuada y poder entenderse</p>
+<p>⏹Se distinguen las mayúsculas y minúsculas: para variables en el código, podemos crear diferentes variables con nombres iguales pero alternando mayúsculas y minúsculas.</p>
+<p>⏹Se pueden incluir comentarios: como vimos anteriormente los comentarios se utilizan para añadir información en el código.</p>
+<p>⏹No es necesario terminar cada sentencia con el carácter de punto y coma (;): en la mayoría de lenguajes de programación, es obligatorio terminar cada sentencia con este carácter. En en cambio R podemos o no terminar de esta forma.</p>
+<p>⏹Lenguaje orientado a objetos: todo en R son objetos, las variables, datos, funciones y resultados, que se generan en R son objetos estos se modifican o manipulan con operadores o funciones (que a su vez son objetos).</p> <br>
+
+
+<p><b>EJEMPLO DE PROGRAMA EN R</b></p>
+<div class="r">
+<pre>
+1    library(AER)             # Para el compendio de datos del libro de Kleiber & Zeileis (2008)
+2 library(scales)          # Para las transparencias de los elementos de color.
+3 library(quantreg)        # Para usar las regresiones por cuantiles
+
+4 data("CPS1985", package = "AER") # Carga los datos del paquete AER
+5 cps <- CPS1985           # Renombra la variable como cps
+6 cps_lm <- lm(log(wage) ~ experience + I(experience^2) + education, data = cps) # Hace la regresión 7 simple
+8 cps_rq <- rq(log(wage) ~ experience + I(experience^2) + education, data = cps, tau = seq(0.2, 0.8, 9 by = 0.15)) # Regresión por cuantiles
+10 cps2 <- data.frame(education = mean(cps$education), experience = min(cps$experience):max
+11 (cps$experience))      # Crea un "data frame" con los datos pertinentes
+12 cps2 <- cbind(cps2, predict(cps_lm, newdata = cps2, interval = "prediction"))  # Se agregan los 13 valores requeridos al "data frame" anterior
+14 cps2 <- cbind(cps2, predict(cps_rq, newdata = cps2, type = ""))                # Se agregan los 15 valores "tau" a cps2. Los valores de los cuantiles
+jpeg("salarios.jpeg", width = 924 , height=924) # Crea una imagen en el directorio actual con 924x924 px de cada lado
+# Se hace la gráfica con:
+plot(log(wage) ~ experience, data = cps,   # Crea el mapeo principal de datos en el gráfico
+          pch=20, col="#234DEA", cex=2,    # Se crean los puntos azules rellenos
+          axes=F,                          # se eliminan los ejes
+          ylab= "", xlab= "")              # Se eliminan los nombres de los ejes
+box(lty=2, col="#424242", lwd=2)           # Agregada una caja gris punteada
+      # Sigue agregar el eje de las abscisas (de las x) y el de las ordenadas
+axis(1, col="#610B21", lwd=3, col.axis="#610B21", cex=2)
+axis(2, col="#610B21", lwd=3, col.axis="#610B21", las=2) 
+      # Se agregan las leyendas a los ejes
+mtext("Experiencia", side=1, cex=1.7, col="#610B21", line=2)
+mtext("Logaritmo del salario", side=2, cex=1.7, col="#610B21", line=2)
+for(i in 6:10) lines(cps2[,i] ~ experience, data = cps2,          # hace el mapeo de las líneas predeterminadas
+                      col=alpha("#FFFF00", .75), lwd=5)           #líneas amarillas gruesas con un 75% de transperencia
+title("Estimación de los salarios en forma semi-logarítmica", cex.main=2.7, col.main="#2E2E2E", 
+      sub="Con base en el libro de Kleiber & Zeileis (2008) y con datos de Brendt (1991)", col.sub="#FF0000", font.sub=4, cex.sub=1.3)
+      # Se crearon el título y subtítulo con los colores y tipo de texto correspondientes
+dev.off()                                 # Se cierra el archivo de imégen, JPEG en este caso
+</pre>
+</div>
+
+</main>
+<footer class="footer"><div class="botones">
+    <button class="button"><a href="tarea8.html">Anterior</a></button>
+    <button class="buttona">
+        <a href="index.html">
+            Menu Principal
+        </a>
+    </button>
+    <button class="buttona">
+        <a href="tarea10.html">
+            Siguiente
+        </a>
+    </button>
+</div>
+</footer>
+</body>
+</html>

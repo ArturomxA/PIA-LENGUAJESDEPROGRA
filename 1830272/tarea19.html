@@ -1,0 +1,59 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <link rel="stylesheet" href="css/tarea19.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body class="grid-container">
+        <header class="header">Tarea 1.-</header>
+        <aside class="sidebar">SIDEBAR</aside>
+        <main class="main">
+            <div class="asa">
+                <pre>
+        1            import javax.swing.JOptionPane;
+        2
+        3           public class BusquedaVector {
+        4                public static void main(String[] args) {
+        5                   int arreglo[] = { 1, 4, 7, 9, 21, 4, 0, 2, 5, 2 };
+        6                   int dato;
+        7                   boolean band = false;
+        8                   dato = Integer.parseInt(JOptionPane.showInputDialog("Digite el numero a buscar"))9;
+        10       
+        11                    int i = 0;
+        12                    while (i < 10 && band == false) {
+        13                        if (arreglo[i] == dato) {
+        14                           band = true;
+        15                     }
+        16                   i++;
+        17             }
+        18           if (band == false) {
+        19             JOptionPane.showMessageDialog(null, "El numero no se encuentra en esto
+        20            arreglo");
+        21                    } else {
+        22                        JOptionPane.showMessageDialog(null, "El numero a sido encontrado en la posicion" + (i - 1));
+        23
+        24                   }
+        25                }
+        26            }
+        27        
+          </div>
+        </main>
+        <footer class="footer"><div class="botones">
+            <button class="button"><a href="tarea18.html">Anterior</a></button>
+            <button class="buttona">
+                <a href="index.html">
+                    Menu Principal
+                </a>
+            </button>
+            <button class="buttona">
+                <a href="tarea20.html">
+                    Siguiente
+                </a>
+            </button>
+        </div>
+        </footer>
+        </body>
+        </html>

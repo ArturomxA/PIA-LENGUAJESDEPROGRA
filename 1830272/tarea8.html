@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/tarea8.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="grid-container">
+<header class="header">PIA LENGUAJES DE PROGRAMACION</header>
+<aside class="sidebar"><p>Tarea 8.-</p> <br> 
+<p> Símbolos, sintaxis, esqueleto de los programas,</p> <br>
+<p>a que tipo de paradigma pertenece</p>
+</aside>
+<main class="main">
+    <img src="imagenes/has.png" alt="">
+<h1>HASKELL</h1>
+<p>Es un lenguaje de programación estandarizado multi-propósito, funcionalmente puro, con evaluación no estricta y memorizada, y fuerte tipificación estática. Su nombre se debe al lógico estadounidense Haskell Curry, debido a su aportación al cálculo lambda, el cual tiene gran influencia en el lenguaje. En Haskell, "una función es un ciudadano de primera clase" del lenguaje de programación. Como <b>lenguaje de programación funcional</b>, el constructor de controles primario es la función. El lenguaje tiene sus orígenes en las observaciones de Haskell Curry y sus descendientes intelectuales.</p> <br>
+<p>En los años 1980 se constituyó un comité cuyo objetivo era crear un lenguaje funcional que reuniera las características de los múltiples lenguajes funcionales de la época, el más notable Miranda, y resolviera la confusión creada por la proliferación de los mismos.</p> 
+
+    <p> lenguaje evoluciona rápidamente y (ver más abajo) como los representantes actuales del estándar de facto. El último estándar oficial es: Haskell 2010, cuyas diferencias respecto al anterior estándar Haskell 98 son:</p> <br>
+    <p><b>Instalación de Haskell </b></p>
+    <p>Haskell, como casi todos los otros lenguajes, viene en dos presentaciones: compilada (compilador) e interactiva (intérprete). Un sistema interactivo ofrece una línea de comandos donde puedes experimentar y evaluar expresiones directamente, por lo que es una buena elección para comenzar</p> <br>
+    <table border="1px">
+        <tr>
+            <td>GHC</td>
+            <td>Compilador e interprete GHCi</td>
+            <td>Probablemente el sistema mas completo</td>
+        </tr>
+        <tr>
+            <td>Hugs</td>
+            <td>Interprete solamente</td>
+            <td>Muy portable y mas liviano que GHC</td>
+        </tr>
+    </table> <br>
+    <br>
+
+    <p><b>FUNCIONES Y SINTAXIS</b></p>
+    <p> Funciones y operadores</p>
+    <div>
+        <pre>
+            (&&) :: Bool -> Bool -> Bool. Conjunción lógica.
+           (||) :: Bool -> Bool -> Bool. Disyunción lógica.
+            not :: Bool -> Bool. Negación lógica.
+            otherwise :: Bool. Función constante que devuelve el valor True.
+        </pre>
+    </div>
+    <p>Funciones y operadores</p>
+        <pre>
+            (+), (-), (*), (/), (^)
+            Float -> Float -> Float. 
+            Suma, resta, producto, 
+            división real y 
+            potencia de exponente entero.
+        </pre>
+        <p>Sintaxis conveniente declaracional</p>
+        <pre>
+            secsToWeeks secs = let perMinute = 60
+                       perHour   = 60 * perMinute
+                       perDay    = 24 * perHour
+                       perWeek   =  7 * perDay
+                   in  secs / perWeek
+        </pre>
+        <p><b>PROGRAMA EN LENGUAJE DE PROGRAMACION HASKELL</b></p>
+        <pre>
+            <p>SACAR EL FACTORIAL DE UN NUMERO</p>
+           1 Prelude> let fac n = if n == 0 then 1 else n * fac (n-1)
+           2   Prelude> fac 42
+           3  fac n = if n == 0 then 1 else n * fac (n-1)
+           4  fac 0 = 1
+           5    fac n = n * fac (n-1)
+           
+           6 main = print (fac 42)
+            
+
+        </pre>
+</main>
+<footer class="footer"><div class="botones">
+    <button class="button"><a href="tarea7.html">Anterior</a></button>
+    <button class="buttona">
+        <a href="index.html">
+            Menu Principal
+        </a>
+    </button>
+    <button class="buttona">
+        <a href="tarea9.html">
+            Siguiente
+        </a>
+    </button>
+</div>
+</footer>
+</body>
+</html>

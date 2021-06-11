@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/tarea7.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 7</title>
+</head>
+<body class="grid-container">
+<header class="header">PIA LENGUAJES DE PROGRAMACION </header>
+<aside class="sidebar">Tarea 7.- <br>
+    <p>Simbolos, Sintaxis, Esqueleto de programa</p> <br>
+    <p>Descarga y Edicion</p> <br>
+    <p>Ejemplo de un programa escrito en Python</p> <br>
+</aside>
+<main class="main"><h1>SCHEME</h1>
+<p>Scheme es un lenguaje de programación funcional (si bien impuro pues sus estructuras de datos no son inmutables) y un dialecto de Lisp. Fue desarrollado por Guy L. Steele y Gerald Jay Sussman en la década de los setenta e introducido en el mundo académico a través de una serie de artículos conocidos como los Lambda Papers de Sussman y Steele.
+
+    La filosofía de Scheme es minimalista. Su objetivo no es acumular un gran número de funcionalidades, sino evitar las debilidades y restricciones que hacen necesaria su adición. Así, Scheme proporciona el mínimo número posible de nociones primitivas, construyendo todo lo demás a partir de un reducido número de abstracciones. Por ejemplo, el mecanismo principal para el control de flujo son las llamadas recursivas.</p>
+    
+    <p>Scheme fue el primer dialecto de Lisp que usó ámbito estático, también conocido como ámbito léxico, (en lugar de dinámico) de forma exclusiva. También fue uno de los primeros lenguajes de programación con continuaciones explícitas, un mecanismo para guardar y usar el estado entero de un programa en un momento determinado. Scheme ofrece también gestión automática de memoria (recolección de basura).</p>
+    
+   <p>Las listas son la estructura de datos básica del lenguaje, que también ofrece arrays entre sus tipos predefinidos. Debido a su especificación minimalista, no hay sintaxis explícita para crear registros o estructuras, o para programación orientada a objetos, pero muchas implementaciones ofrecen dichas funcionalidades.</p>
+    
+    <p>Scheme se llamaba originalmente "Schemer", siguiendo la tradición de los lenguajes Planner y Conniver. Su nombre actual es debido a que sus autores usaban el sistema operativo ITS, que limitaba la longitud de los nombres de fichero a 6 caracteres.</p>
+    <h2>Variables Y Sintaxis</h2>
+    <p>Las variables son dinámicamente tipadas. Para asociarlas a un valor concreto, podemos usar define, una expresión let, o alguna de sus variantes. Las variables asignadas en el primer nivel usando define están en ámbito global (es decir, son visibles en el resto de programa).</p>
+    <p> <br>
+        <br>
+        <div class="pe">
+        <pre>
+            (let ((var1 value))
+            ...
+             ámbito de var1
+            ...) 
+        </pre>
+    </div>
+    <p>Como vemos, la función invocada se encuentra en primer lugar, seguida de los argumentos de la llamada, formando una lista. Podemos también utilizar el procedimiento apply, que toma dos argumentos: el primero es el procedimiento que queremos invocar, mientras que el segundo es la lista de argumentos. Así, la anterior llamada a función puede escribirse, de forma equivalente, como:</p> <br> <br>
+    <div class="pe">
+    <pre>(apply fun (list value1 value2))</pre>
+</div>
+    </p>
+    <p> <br>
+        <b>Ejemplo de programa</b>
+        <div class="pe">
+           <pre>
+            (define (factorial n)
+            (let loop ((fact 1)
+                       (n n))
+              (cond ((= n 0) fact)
+                    (else (loop (* n fact) (- n 1))))))
+        
+          (factorial 5)
+         ;; => 120
+        
+          (define (map f lst)
+            (do ((lst lst (cdr lst))
+                 (res '() (cons (f (car lst)) res)))
+                ((null? lst) (reverse res))))
+        
+          (map (lambda (x) (* x x)) '(1 2 3 4))
+         ;; => (1 4 9 16)
+           </pre>
+        </div>
+    </p>
+</main>
+<footer class="footer"><div class="botones">
+    <button class="button"><a href="tarea6.html">Anterior</a></button>
+    <button class="buttona">
+        <a href="index.html">
+            Menu Principal
+        </a>
+    </button>
+    <button class="buttona">
+        <a href="tarea8.html">
+            Siguiente
+        </a>
+    </button>
+</div>
+</footer>
+</body>
+</html>

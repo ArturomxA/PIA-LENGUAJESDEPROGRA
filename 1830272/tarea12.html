@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/tarea12.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 12</title>
+</head>
+<body class="grid-container">
+<header class="header">PIA LENGUAJES DE PROGRAMACION-</header>
+<aside class="sidebar">
+    <p>Tarea 12.-</p> <br>
+    <p>
+        Símbolos, sintaxis, esqueleto de los programas
+        
+        
+        
+        
+        </p> <br>
+    <p>a que tipo de paradigma pertenece
+    </p> <br>
+    <p>ejemplo de un programa escrito en ese lenguaje</p>
+</aside>
+<main class="main">
+    <img src="imagenes/ada.jpg" alt="">
+    <h1>LENGUAJE DE PROGRAMACION ADA</h1>
+    <p>Ada es un lenguaje de programación orientado a objetos y fuertemente tipado de forma estática que fue diseñado por Jean Ichbiah de CII Honeywell Bull por encargo del Departamento de Defensa de los Estados Unidos. Es un lenguaje multipropósito, orientado a objetos y concurrente, pudiendo llegar desde la facilidad de Pascal hasta la flexibilidad de C++.
+
+        Fue diseñado con la seguridad en mente y con una filosofía orientada a la reducción de errores comunes y difíciles de descubrir. Para ello se basa en un tipado muy fuerte y en chequeos en tiempo de ejecución (desactivables en beneficio del rendimiento). La sincronización de tareas se realiza mediante la primitiva rendezvous.
+        
+        Ada se usa principalmente en entornos en los que se necesita una gran seguridad y fiabilidad como la defensa, la aeronáutica (Boeing o Airbus), la gestión del tráfico aéreo (como Indra en España) y la industria aeroespacial entre otros.</p>
+        <p>El lenguaje fue diseñado bajo encargo del Departamento de Defensa de los Estados Unidos (DoD). Durante los años 1970, este departamento tenía proyectos en una infinidad de lenguajes y estaba gastando mucho dinero en software. Para solucionarlo se buscó un lenguaje único que cumpliese unas ciertas normas recogidas en el documento Steelman. Después de un estudio de los lenguajes existentes en la época se decidió que ninguno las cumplía totalmente, por lo que se hizo un concurso público al que se presentaron cuatro equipos, cuyas propuestas se nombraron con un color: Rojo (Intermetrics), Verde (CII Honeywell Bull), Azul (SofTEch) y Amarillo (SRI International). Finalmente en mayo de 1979 se seleccionó la propuesta Verde diseñada por Jean Ichbiah de CII Honeywell Bull, y se le dio el nombre de Ada. Esta propuesta era un sucesor de un lenguaje anterior de este equipo llamado LIS y desarrollado durante los años 1970.</p>
+        <p>Los requisitos se centraron en las necesidades de las aplicaciones informáticas integradas y enfatizaron la confiabilidad, la capacidad de mantenimiento y la eficiencia. En particular, incluyeron facilidades de manejo de excepciones, verificación en tiempo de ejecución y computación paralela</p>
+        <h2>COMPILADORES</h2>
+        <p>Un compilador de Ada muy usado es GNAT, originalmente desarrollado por la Universidad de Nueva York bajo patrocinio del DoD. Está basado en la tecnología de GCC y es software libre. Actualmente está mantenido por AdaCore (antes llamada Ada Core Technologies), empresa que ofrece soporte y servicios sobre el compilador.
+
+            Existen otros compiladores comerciales.</p>
+            <h3>TIPO DE DATOS</h3>
+            <p>Integer: un número entero.</p> <br>
+            <p>Float: un número decimal.</p> <br>
+            <p>Character: una letra o símbolo del teclado (también puede ser un número o varios, pero no se pueden hacer operaciones entre ellos).</p> <br>
+            <p><b>PROGRAMA SUMA DE VECTORES DE LENGUAJE DE PROGRAMACION ADA</b></p>
+            <div class="ei">
+                <pre>
+with Arrays; use Arrays;
+function Suma_Vectores (V1, V2 : Vector_1) return Vector_1 is
+ suma : Vector_1 (1 .. V1'Length);
+ begin
+  if V1'Length = V2'Length then
+  for I in 1 .. V1'Length loop
+suma (I) := V1 (V1'First + I - 1) + V2 (V2'First + I - 1);
+end loop;
+ else
+    raise Constraint_Error with "Vectores incompatibles";
+  end if;
+     return suma;
+  end Suma_Vectores;
+
+ package Arrays is
+ type Vector_1 is array (Integer range <>) of Integer;
+type Vector_2 is array (Positive range <>) of Integer;
+type Matriz_1 is array (Integer range <>, Integer range <>) of Integer;
+end Arrays;
+                </pre>
+            </div>
+ </main>
+<footer class="footer"><div class="botones">
+    <button class="button"><a href="tarea11.html">Anterior</a></button>
+    <button class="buttona">
+        <a href="index.html">
+            Menu Principal
+        </a>
+    </button>
+    <button class="buttona">
+        <a href="tarea16.html">
+            Siguiente
+        </a>
+    </button>
+</div>
+</footer>
+</body>
+</html>

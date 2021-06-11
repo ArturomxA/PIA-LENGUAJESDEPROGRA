@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/tarea10.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="grid-container">
+<header class="header">PIA LENGUAJES DE PROGRAMACION-</header>
+<aside class="sidebar">
+    <p>Tarea 10.-</p> <br>
+    <P>Símbolos, sintaxis, esqueleto de los programas,</P> <br>
+    <p>a que tipo de paradigma pertenece</p> 
+</aside>
+<main class="main">
+    <img src="imagenes/go.jpg" alt="">
+    <h1>Gödel (lenguaje de programación)</h1>
+    <p>Gödel es un lenguaje de programación declarativo, de propósito general, adherido al paradigma de la programación lógica. Es un lenguaje fuertemente tipado, con un sistema de tipos basado en many-sorted logic con polimorfismo parametrizado. Se le dio ese nombre en honor al lógico Kurt Gödel.</p>
+    <p>Gödel tiene un sistema de módulos; permite enteros y racionales de precisión arbitraria y números de punto flotante. Puede resolver restricciones sobre dominios finitos de enteros así como restricciones lineales racionales. Admite procesamiento de conjuntos finitos. Tiene también una regla flexible de cómputo que admite el operador de poda, que es una generalización del operador commit de los lenguajes de programación concurrentes.
+
+        Las facilidades metalógicas de Gödel dan cabida a metaprogramas que realizan análisis, transformación, compilación, verificación y puesta a punto, entre muchas otras tareas.</p>
+        
+
+        <p> <b>Ejemplo de Codigo en Gödel</b> </p>
+        <p>Es una especificación del máximo común divisor (MCD) de dos números. Su objetivo es mostrar la naturaleza declarativa de Gödel, pero no es particularmente eficiente</p>
+        <pre class="prea">
+            MODULE      MCD.
+IMPORT      Integers.
+ 
+PREDICATE   Mcd : Integer * Integer * Integer.
+Mcd(i,j,d) <- 
+           DivisorComun(i,j,d) &
+           ~ SOME [e] (DivisorComun(i,j,e) & e > d).
+ 
+PREDICATE   DivisorComun : Integer * Integer * Integer.
+DivisorComun(i,j,d) <-
+           IF (i = 0 \/ j = 0)
+           THEN
+             d = Max(Abs(i),Abs(j))
+           ELSE
+             1 =< d =< Min(Abs(i),Abs(j)) &
+             i Mod d = 0 &
+             j Mod d = 0.
+        </pre>
+    </div>
+    <p>En cuestion de sintaxis no es muy desarollada ya que nunca se patento y no se tiene un historial exacto quecomo como lenguaje tipado y pertecer a los paradigmas de logica</p>
+</div>
+</main>
+<footer class="footer"><div class="botones">
+    <button class="button"><a href="tarea9.html">Anterior</a></button>
+    <button class="buttona">
+        <a href="index.html">
+            Menu Principal
+        </a>
+    </button>
+    <button class="buttona">
+        <a href="tarea11.html">
+            Siguiente
+        </a>
+    </button>
+</div>
+</footer>
+</body>
+</html>
